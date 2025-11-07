@@ -54,10 +54,7 @@ fun BookCard(
             AsyncImage(
                 model = ImageRequest.Builder(
                     LocalContext.current
-                )
-                    .data(book.coverImageUrl)
-                    .crossfade(300)
-                    .build(),
+                ).data(book.coverImageUrl).crossfade(300).build(),
                 contentDescription = if (!book.coverImageUrl.isNullOrBlank()) "Cover for ${book.title} by $authorsText" else null,
                 modifier = Modifier
                     .size(80.dp)
@@ -69,7 +66,7 @@ fun BookCard(
 
             Spacer(modifier = Modifier.width(12.dp))
 
-            // Title and author (right)
+
             Column(modifier = Modifier.fillMaxWidth()) {
                 Text(
                     text = book.title,
@@ -84,7 +81,7 @@ fun BookCard(
                     text = authorsText,
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    maxLines = 1,
+                    maxLines = 3,
                     overflow = TextOverflow.Ellipsis
                 )
             }

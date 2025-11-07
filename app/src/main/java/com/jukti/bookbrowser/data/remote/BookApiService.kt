@@ -6,7 +6,7 @@ import retrofit2.http.GET
 
 interface BookApiService {
 
-    @GET("subjects/science_fiction.json?limit=20")
+    @GET("subjects/science_fiction.json?limit=200")
     suspend fun getScienceFictionBooks(): BookResponseDto
 
 }

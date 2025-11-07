@@ -3,8 +3,6 @@ package com.jukti.bookbrowser.di
 import android.content.Context
 import androidx.room.Room
 import com.jukti.bookbrowser.data.local.BookDatabase
-import com.jukti.bookbrowser.data.local.AuthorListConverter
-import kotlinx.serialization.json.Json
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
