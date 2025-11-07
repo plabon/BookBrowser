@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BookBrowser</string>
+    <string name="loading_books">Loading books…</string>
+    <string name="error_generic">Something went wrong. Please try again later.</string>
+</resources>
