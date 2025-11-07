@@ -28,6 +28,7 @@ Run instrumentation tests (androidTest) — require an emulator or device:
 
 
 
+
 ## How to run the app
 
 Using Android Studio
@@ -72,4 +73,17 @@ Why this approach
   - Data/Repository: `BookRepositoryImpl` (network + Room) implements `BookRepository` interface.
   - DI: Hilt (`DataModule`, `DispatcherModule`) wires implementations and dispatchers.
 
+Principles applied
+- Unidirectional Data Flow (UDF):
+  - Data flows one-way: the repository/use-case layer emits a `Flow<Resource<List<Book>>>`, the `ViewModel` collects it and maps it to a UI state (`BookListUiState`), and the UI observes that state via `collectAsStateWithLifecycle()`.
+  - UI events (if any) are forwarded to the `ViewModel` as intents/commands — the `ViewModel` is the single source that mutates state. 
+- Separation of Concerns:
+  - UI layer only renders state and exposes user intents.
+  - `ViewModel` handles orchestration, state mapping, and small presentation logic.
+  - Use cases encapsulate business rules and orchestrate repository calls.
+  - Repository is responsible for data access, caching, and error recovery (network <-> local DB).
+  - This separation keeps components small, focused, and easily testable.
+- Dependencies point inward (Dependency Rule):
+  - Inner layers (domain/use-cases, UI models) do not depend on Android or framework concerns; concrete implementations (Room, Retrofit, Dispatchers) are provided to outer layers via interfaces and Hilt.
+  - `BookRepository` is an interface in the domain/data boundary; `BookRepositoryImpl` (with Room/Retrofit) is injected at runtime. Tests/fakes can provide alternate implementations without touching inner layers.
 
