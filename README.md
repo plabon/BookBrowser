@@ -1,7 +1,7 @@
 # BookBrowser — README
 
 
-How to run the tests
+## How to run the tests
 
 Prerequisites
 - JDK 11 installed
