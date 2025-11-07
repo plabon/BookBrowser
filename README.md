@@ -45,7 +45,7 @@ From the command-line
 ```
 
 
-## Caching approach and architecture used
+## Caching approach
 
 Caching approach (implemented in repository)
 - The app follows a simple network + local cache pattern (a lightweight NetworkBoundResource variant):
