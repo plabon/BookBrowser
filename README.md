@@ -20,7 +20,7 @@ Run unit tests (fast, JVM tests):
 Run instrumentation tests (androidTest) — require an emulator or device:
 
 ```bash
-# run all connected instrumentation tests (slow)
+# run all connected instrumentation tests
 ./gradlew :app:connectedDebugAndroidTest --console=plain
 
 
