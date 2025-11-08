@@ -1,13 +1,29 @@
 # BookBrowser — README
 
 
-## How to run the tests
+## How to run the app
 
 Prerequisites
-- JDK 11 installed
+- JDK 17 installed
 - Android SDK and an emulator (or a connected device)
 - A working `adb` on your PATH
 - Prefer Android Studio for a simpler experience (it will install/launch emulators for you)
+
+
+Using Android Studio
+- Open the project in Android Studio (recommended).
+- Build and run on an emulator or device via the Run button.
+
+From the command-line
+- Build and install the debug APK to a device/emulator:
+
+```bash
+# build and install
+./gradlew :app:installDebug --console=plain
+
+```
+
+## How to run the tests
 
 Run unit tests (fast, JVM tests):
 
@@ -26,23 +42,6 @@ Run instrumentation tests (androidTest) — require an emulator or device:
 
 ```
 
-
-
-
-## How to run the app
-
-Using Android Studio
-- Open the project in Android Studio (recommended).
-- Build and run on an emulator or device via the Run button.
-
-From the command-line
-- Build and install the debug APK to a device/emulator:
-
-```bash
-# build and install
-./gradlew :app:installDebug --console=plain
-
-```
 
 
 ## Caching approach
